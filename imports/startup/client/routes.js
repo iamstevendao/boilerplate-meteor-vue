@@ -18,6 +18,11 @@ const PageNotFoundAsync = (resolve) => {
     .then((PageNotFound) => resolve(getModule(PageNotFound)));
 }
 
+const PageAboutAsync = (resolve) => {
+  import('/imports/ui/pages/about/about.vue')
+    .then((PageAbout) => resolve(getModule(PageAbout)));
+}
+
 const routes = [
   {
     path: '/',
@@ -27,6 +32,11 @@ const routes = [
     path: '/home',
     name: 'home',
     component: PageHomeAsync,
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: PageAboutAsync,
   },
   {
     path: '*',
