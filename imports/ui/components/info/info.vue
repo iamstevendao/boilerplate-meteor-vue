@@ -1,0 +1,22 @@
+<template lang="pug">
+  <h2>Learn Meteor!</h2>
+  <ul>
+    <li>
+      <form class="info-link-add">
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="url" name="url" placeholder="Url" required>
+        <input type="submit" name="submit" value="Add new link">
+      </form>
+    </li>
+    {{#each links}}
+      <li><a href="{{url}}" target="_blank">{{title}}</a></li>
+    {{/each}}
+  </ul>
+</template>
+
+<script>
+export default {
+  name: "info",
+}
+</script>
+
