@@ -1,4 +1,5 @@
 <template lang="pug">
+body
   hello
   info
 </template>

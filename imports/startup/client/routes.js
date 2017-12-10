@@ -1,21 +1,47 @@
-import { FlowRouter } from 'meteor/kadira:flow-router';
-import { BlazeLayout } from 'meteor/kadira:blaze-layout';
+import VueRouter from 'vue-router';
+import { resolve } from 'path';
 
-// Import needed templates
-import '../../ui/layouts/body/body.js';
-import '../../ui/pages/home/home.js';
-import '../../ui/pages/not-found/not-found.js';
+const getModule = (mod) => {
+  if (process.env.NODE_ENV === 'test') {
+    return mod;
+  }
+  return mod.default;
+}
 
-// Set up all routes in the app
-FlowRouter.route('/', {
-  name: 'App.home',
-  action() {
-    BlazeLayout.render('App_body', { main: 'App_home' });
+const PageHomeAsync = (resolve) => {
+  import('/imports/ui/pages/home/home.vue')
+    .then((PageHome) => resolve(getModule(PageHome)));
+}
+
+const PageNotFoundAsync = (resolve) => {
+  import('/imports/ui/pages/not-found/not-found.vue')
+    .then((PageNotFound) => resolve(getModule(PageNotFound)));
+}
+
+const routes = [
+  {
+    path: '/',
+    component: PageHomeAsync,
   },
+  {
+    path: '/home',
+    name: 'home',
+    component: PageHomeAsync,
+  },
+  {
+    path: '*',
+    name: 'not-found',
+    component: PageNotFoundAsync,
+  },
+];
+
+const router = new VueRouter({
+  routes,
+  mode: 'history',
 });
 
-FlowRouter.notFound = {
-  action() {
-    BlazeLayout.render('App_body', { main: 'App_notFound' });
-  },
-};
+// router.beforeEach((to, from, next) => {
+//   next();
+// })
+
+export default router;
