@@ -12,8 +12,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 // local files
 import router from './routes.js';
-//import App from '/imports/ui/app.vue';
-import home from '/imports/ui/pages/home/home.vue';
+import app from './app.vue';
 //import '../accounts-config.js';
 //import storeOptions from '/imports/modules/store';
 //import router from '/imports/router/router';
@@ -37,7 +36,7 @@ var vue;
 Meteor.startup(() => {
   vue = new Vue({
     replace: true,
-    render: (h) => h(home),
+    render: (h) => h(app),
     // supplyCache, // need to put cache inside new Vue instance
     // store,
     router,
