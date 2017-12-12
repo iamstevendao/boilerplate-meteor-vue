@@ -23,6 +23,15 @@ const PageAboutAsync = (resolve) => {
     .then((PageAbout) => resolve(getModule(PageAbout)));
 }
 
+const PageLoginAsync = (resolve) => {
+  import('/imports/ui/pages/login/login.vue')
+    .then((PageLogin) => resolve(getModule(PageLogin)));
+}
+
+const PageSignUpAsync = (resolve) => {
+  import('/imports/ui/pages/sign-up/sign-up.vue')
+    .then((PageSignUp) => resolve(getModule(PageSignUp)));
+}
 const routes = [
   {
     path: '/',
@@ -37,6 +46,16 @@ const routes = [
     path: '/about',
     name: 'about',
     component: PageAboutAsync,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: PageLoginAsync,
+  },
+  {
+    path: '/sign-up',
+    name: 'sign-up',
+    component: PageSignUpAsync,
   },
   {
     path: '*',
