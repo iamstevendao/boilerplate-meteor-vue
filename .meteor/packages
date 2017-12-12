@@ -22,7 +22,6 @@ akryum:vue                    # Vue package for meteor
 akryum:vue-component          # Use .vue files
 akryum:vue-pug                # Use pug in .vue files
 akryum:vue-less               # Use less in .vue files
-mwc:synthesis-pug             # Use pug in client endpoint
 accounts-ui                   # meteor's default accounts handler
 accounts-password             # meteor's default accounts handler
 akryum:vue-blaze-template     # Use loginButtons

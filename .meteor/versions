@@ -64,8 +64,6 @@ modules-runtime@0.9.1
 mongo@1.3.0
 mongo-dev-server@1.1.0
 mongo-id@1.0.6
-mwc:synthesis-compiler@1.3.9
-mwc:synthesis-pug@1.3.10
 npm-bcrypt@0.9.3
 npm-mongo@2.2.33
 observe-sequence@1.0.16
