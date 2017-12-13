@@ -4,7 +4,7 @@ div
 </template>
 
 <script>
-import hello from '/imports/ui/components/hello/hello.vue'
+import hello from '/imports/ui/components/hello.vue'
 
 export default {
   name: "home",
